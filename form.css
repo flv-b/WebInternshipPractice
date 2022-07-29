@@ -1,0 +1,60 @@
+
+.contact-form{
+  background-color: #FFFFFF;
+  font-family: Lora;
+  margin: 67px 142px auto 142px;
+
+}
+
+.contact-form-header{
+  font-weight: bold;
+  font-size: 44px;
+  color: #525b78;
+  letter-spacing: 0;
+  line-height: 56pt; 
+  margin-left: 117px;
+  margin-right: 155px;
+}
+
+.form-row{
+  margin: auto 172px auto 168px;
+  justify-content: space-between;
+}
+
+form input[type='text'],
+input[type='email'],
+input[type='textarea']{
+  border: 1px solid #525B78;
+  border-radius: 10px;
+  opacity: 1;
+  height: 40px;
+}
+
+form input[type='radio'] {
+  width: 31px;
+  height: 31px; 
+  margin-right: 12px;
+  accent-color: purple; 
+  /* accent-color: green; */
+  color-scheme: light;
+}
+
+
+form input[type='radio'] + *::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: red;
+}
+
+.radio-label{
+  letter-spacing: 0px;
+  font-size: 20px;
+  vertical-align:middle
+}

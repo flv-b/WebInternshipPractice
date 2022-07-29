@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='UTF-8'/>
-    <title> Contact Form </title>
-    <link rel='stylesheet' href='style.css'/>
+    <meta charset="UTF-8" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="form.css" />
   </head>
 
   <body>
@@ -14,81 +15,115 @@
       <nav>...</nav>
     </header> -->
 
-      <form action='' method='get' class='contact-form'>
-        <header>Having questions? We are here for you</header>
+    <form action="" method="get" class="contact-form">
+      <header class="contact-form-header">
+        Having questions? We are here for you
+      </header>
 
-        <fieldset class='legacy-form-row'>
-          <!-- <legend></legend>-->
-          <input id='member-status-1'
-                 name='member-status'
-                 type='radio'
-                 value='member' />
-          <label for='talk-type-1' class='radio-label'>I have a membership</label>
-          <input id='member-status-2'
-                 name='member-status'
-                 type='radio'
-                 value='not-member'
-                checked />
-          <label for='talk-type-2' class='radio-label'>I dont't have a membership</label>
-        </fieldset>
+      <div class="legacy-form-row form-row row">
+        <div class="row">
+          <input
+            id="member-status-1"
+            name="member-status"
+            type="radio"
+            value="member"
+          />
+          <label for="member-type-1" class="radio-label"
+            >I have a membership</label
+          >
+        </div>
+        <div class="row">
+          <input
+            id="member-status-2"
+            name="member-status"
+            type="radio"
+            value="not-member"
+            checked
+          />
+          <label for="memeber-type-2" class="radio-label"
+            >I don't have a membership</label
+          >
+        </div>
+      </div>
 
-          <div class='form-row'>
-            <label for='full-name'>Name</label>
-            <input id='full-name' name='full-name' type='text' placeholder='Surname Name'/>
-          </div>
+      <div class="form-row row">
+        <div class="column">
+          <label for="full-name">Name</label>
+          <input
+            id="full-name"
+            name="full-name"
+            type="text"
+            placeholder="Surname Name"
+          />
+        </div>
+        <div class="column">
+          <label for="birth-date">Birth Date</label>
+          <input
+            id="birth-date"
+            name="birth-date"
+            type="text"
+            placeholder="DD/MM/YYYY"
+          />
+        </div>
+      </div>
 
-          <div class='form-row'>
-            <label for='birth-date'>Birth Date</label>
-            <input id='birth-date' name='birth-date' type='text' placeholder='DD/MM/YYYY'/>
-          </div>
-          
+      <div class="form-row row">
+        <div class="column">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="abcdef@gmail.com"
+          />
+        </div>
+        <div class="column">
+          <label for="phone-number ">Phone Number</label>
+          <input
+            id="phone-number"
+            name="phone-number"
+            type="text"
+            placeholder="+40xxx xxx xxx"
+            \
+          />
+        </div>
+      </div>
 
-          <div class='form-row'>
-            <label for='email'>Email</label>
-            <input id='email'
-                   name='email'
-                   type='email'
-                   placeholder='abcdef@gmail.com'/>
-          </div>
+      <div class="form-row row">
+        <div class="column w-100">
+          <label for="adress">Adress</label>
+          <input id="adress" name="adress" type="text" placeholder="Str bloc" />
+        </div>
+      </div>
 
-          <div class='form-row'>
-            <label for='phone-number'>Phone Number</label>
-            <input id='phone-number'
-                   name='phone-number'
-                   type='text'
-                   placeholder='+40xxx xxx xxx'\>
-          </div>
+      <div class="form-row row">
+        <div class="column w-100">
+          <label for="question">Your question</label>
+          <textarea
+            id="question"
+            name="question"
+            placeholder="Ask your question here"
+          ></textarea>
+        </div>
+      </div>
 
-          <div class='form-row'>
-            <label for='adress'>Adress</label>
-            <input id='adress'
-                   name='adress'
-                   type  ='text'
-                   placeholder='Str bloc'>
+      <div class="form-row row">
+        <label class="checkbox-label row" for="agreement">
+          <input
+            id="agreement"
+            name="agreement"
+            type="checkbox"
+            value="is-agreed"
+          />
+          <span>I accept the terms and conditions.</span>
+        </label>
+      </div>
 
-          </div>
-
-          <div class='form-row'>
-            <label for='question'>Your question</label>
-            <textarea id='question' name='question'></textarea>
-            <div class='instructions'>Ask your question here</div>
-          </div>
-
-          <div class='form-row'>
-            <label class='checkbox-label' for='agreement'>
-              <input id='agreement'
-                     name='agreement'
-                     type='checkbox'
-                     value='is-agreed'/>
-              <span>I accept the terms and conditions.</span>
-              </label>
-          </div>
-
-          <div class='form-row'>
-            <button>Send</button>
-          </div>
-
-
+      <div class="form-row row">
+        <div class="row">
+          <button>Send</button>
+        </div>
+      </div>
     </form>
   </body>
 </html>
