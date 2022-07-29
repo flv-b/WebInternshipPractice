@@ -14,6 +14,10 @@ body{
 
 }
 
+input, textarea {
+  padding: 10px;
+}
+
 .contact-form{
   padding-bottom: 50px;
 }
@@ -35,7 +39,6 @@ body{
 
 ::placeholder{
   color:#525B7880;
-  padding: 10px;
 }
 
 .align-center{
@@ -50,4 +53,11 @@ body{
   margin-right: 136px; 
 }
 
+.m-0 {
+  margin: 0 !important;
+}
+
+.visible {
+  visibility: visible !important;
+}
 

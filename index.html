@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Contact Form</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="Form/form.css" />
   </head>
 
   <body>
@@ -90,10 +90,21 @@
       </div>
 
       <div class="form-row row">
-        <div class="column w-100">
+        <div class="column w-100 m-0">
           <label for="adress">Adress</label>
           <input id="adress" name="adress" type="text" placeholder="Str bloc" />
         </div>
+      </div>
+
+      <div class="form-row">
+        <div id="faq-select" class="custom-select column w-100">
+        <input placeholder="Frequently asked questions"></input>
+        <div id="faq-select__options" class="dropdown-options w-100">
+            <div value="question-1">Can your clinic recommend a doctor for me?</div>
+            <div value="question-2">How can I get a copy of my medical records?</div>
+            <div value="question-3">Can I visit yor clinic in other cities?</div>
+        </div>
+      </div>
       </div>
 
       <div class="form-row row">
@@ -122,6 +133,14 @@
       <div class="row w-100 justify-center">
         <button class="submit-contact-form">Send</button>
       </div>
+
+      <!-- <div class="submit-modal-container">
+        <header>Thank you!</header>
+        <div> Your question has been successfully sent!</div>
+        <div> Our consultant will get to you shortly!</div>
+      </div> -->
+
     </form>
   </body>
+  <script src="Form/form.js"></script>
 </html>
