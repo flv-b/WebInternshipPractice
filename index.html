@@ -21,18 +21,18 @@
       </header>
 
       <div class="legacy-form-row form-row row">
-        <div class="row">
+        <div class="row align-center">
           <input
             id="member-status-1"
             name="member-status"
             type="radio"
             value="member"
           />
-          <label for="member-type-1" class="radio-label"
+          <label for="member-status-1" class="radio-label"
             >I have a membership</label
           >
         </div>
-        <div class="row">
+        <div class="row align-center">
           <input
             id="member-status-2"
             name="member-status"
@@ -40,14 +40,14 @@
             value="not-member"
             checked
           />
-          <label for="memeber-type-2" class="radio-label"
+          <label for="member-status-2" class="radio-label"
             >I don't have a membership</label
           >
         </div>
       </div>
 
       <div class="form-row row">
-        <div class="column">
+        <div class="column space-between-columns">
           <label for="full-name">Name</label>
           <input
             id="full-name"
@@ -68,7 +68,7 @@
       </div>
 
       <div class="form-row row">
-        <div class="column">
+        <div class="column space-between-columns">
           <label for="email">Email</label>
           <input
             id="email"
@@ -115,14 +115,12 @@
             type="checkbox"
             value="is-agreed"
           />
-          <span>I accept the terms and conditions.</span>
+          <span class="t-and-c-label">I accept the terms and conditions.</span>
         </label>
       </div>
 
-      <div class="form-row row">
-        <div class="row">
-          <button>Send</button>
-        </div>
+      <div class="row w-100 justify-center">
+        <button class="submit-contact-form">Send</button>
       </div>
     </form>
   </body>
