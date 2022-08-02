@@ -48,7 +48,7 @@
 
       <div class="form-row row">
         <div class="column space-between-columns form-field">
-          <label for="full-name">Name</label>
+          <label for="full-name">Name*</label>
           <input
             id="full-name"
             name="full-name"
@@ -58,7 +58,7 @@
           <small></small>
         </div>
         <div class="column form-field">
-          <label for="birth-date">Birth Date</label>
+          <label for="birth-date">Birth Date*</label>
           <input
             id="birth-date"
             name="birth-date"
@@ -71,17 +71,17 @@
 
       <div class="form-row row">
         <div class="column space-between-columns form-field">
-          <label for="email">Email</label>
+          <label for="email">Email*</label>
           <input
             id="email"
             name="email"
-            type="email"
+            type="text"
             placeholder="abcdef@gmail.com"
           />
           <small></small>
         </div>
         <div class="column form-field">
-          <label for="phone-number ">Phone Number</label>
+          <label for="phone-number ">Phone Number*</label>
           <input
             id="phone-number"
             name="phone-number"
@@ -92,49 +92,52 @@
         </div>
       </div>
 
-      <div class="form-row row form-field">
-        <div class="column w-100 m-0">
-          <label for="adress">Adress</label>
+      <div class="form-row row ">
+        <div class="column w-100 m-0 form-field">
+          <label for="adress">Adress*</label>
           <input id="adress" name="adress" type="text" placeholder="Str bloc" />
-          <small></details></small>
+          <small></small>
         </div>
       </div>
 
       <div class="form-row form-field">
         <div id="faq-select" class="custom-select column w-100">
-        <input placeholder="Frequently asked questions"></input>
+        <input id='question' placeholder="Frequently asked questions"></input>
         <div id="faq-select__options" class="dropdown-options w-100">
             <div value="question-1">Can your clinic recommend a doctor for me?</div>
             <div value="question-2">How can I get a copy of my medical records?</div>
             <div value="question-3">Can I visit yor clinic in other cities?</div>
-        </div>
-        <small></small>
+          </div>
+          <small></small>
       </div>
       </div>
 
       <div class="form-row row">
         <div class="column w-100 form-field">
-          <label for="question">Your question</label>
+          <label for="question">Your question
+          </label>
           <textarea
             id="question"
             name="question"
             placeholder="Ask your question here"
           ></textarea>
+          <small></small>
         </div>
       </div>
 
-      <div class="form-row row form-field">
-        <label class="checkbox-label row" for="agreement">
+      <div class="form-row column form-field">
+        <small></small>
+        <label class="checkbox-label row form-field" for="agreement">
           <input
-            id="agreement"
-            name="agreement"
-            type="checkbox"
-            value="is-agreed"
+          id="agreement"
+          name="agreement"
+          type="checkbox"
+          value="is-agreed"
           />
-          <span class="t-and-c-label">I accept the terms and conditions.</span>
+          <span class="t-and-c-label form-field">I accept the terms and conditions.</span>
         </label>
       </div>
-
+      
       <div class="row w-100 justify-center">
         <button class="submit-contact-form">Send</button>
       </div>

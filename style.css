@@ -62,10 +62,3 @@ input, textarea {
 }
 
 
-.contact-form .form-field.error input{
-  border-color: #E3132F;
-}
-
-.form-field small{
-  color:#E3132F;
-}
