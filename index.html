@@ -15,7 +15,7 @@
       <nav>...</nav>
     </header> -->
 
-    <form action="" method="get" class="contact-form">
+    <form id='contact-form' action="" method="get" class="contact-form">
       <header class="contact-form-header">
         Having questions? We are here for you
       </header>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="form-row row">
-        <div class="column space-between-columns">
+        <div class="column space-between-columns form-field">
           <label for="full-name">Name</label>
           <input
             id="full-name"
@@ -55,20 +55,22 @@
             type="text"
             placeholder="Surname Name"
           />
+          <small></small>
         </div>
-        <div class="column">
+        <div class="column form-field">
           <label for="birth-date">Birth Date</label>
           <input
             id="birth-date"
             name="birth-date"
-            type="text"
+            type="date"
             placeholder="DD/MM/YYYY"
           />
+          <small></small>
         </div>
       </div>
 
       <div class="form-row row">
-        <div class="column space-between-columns">
+        <div class="column space-between-columns form-field">
           <label for="email">Email</label>
           <input
             id="email"
@@ -76,27 +78,29 @@
             type="email"
             placeholder="abcdef@gmail.com"
           />
+          <small></small>
         </div>
-        <div class="column">
+        <div class="column form-field">
           <label for="phone-number ">Phone Number</label>
           <input
             id="phone-number"
             name="phone-number"
             type="text"
             placeholder="+40xxx xxx xxx"
-            \
           />
+          <small></small>
         </div>
       </div>
 
-      <div class="form-row row">
+      <div class="form-row row form-field">
         <div class="column w-100 m-0">
           <label for="adress">Adress</label>
           <input id="adress" name="adress" type="text" placeholder="Str bloc" />
+          <small></details></small>
         </div>
       </div>
 
-      <div class="form-row">
+      <div class="form-row form-field">
         <div id="faq-select" class="custom-select column w-100">
         <input placeholder="Frequently asked questions"></input>
         <div id="faq-select__options" class="dropdown-options w-100">
@@ -104,11 +108,12 @@
             <div value="question-2">How can I get a copy of my medical records?</div>
             <div value="question-3">Can I visit yor clinic in other cities?</div>
         </div>
+        <small></small>
       </div>
       </div>
 
       <div class="form-row row">
-        <div class="column w-100">
+        <div class="column w-100 form-field">
           <label for="question">Your question</label>
           <textarea
             id="question"
@@ -118,7 +123,7 @@
         </div>
       </div>
 
-      <div class="form-row row">
+      <div class="form-row row form-field">
         <label class="checkbox-label row" for="agreement">
           <input
             id="agreement"
@@ -143,4 +148,5 @@
     </form>
   </body>
   <script src="Form/form.js"></script>
+  <script src="Form/form-validation.js"></script>
 </html>
