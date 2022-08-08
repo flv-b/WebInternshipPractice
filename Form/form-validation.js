@@ -136,8 +136,8 @@ const checkAddress = () => {
 
   if (!hasValue(adress)) {
     showError(adressEl, 'This field is mandatory');
-  } else if (isAdressValid(adress)) {
-    showError(adressEl, 'The phone number is not valid');
+  } else if (!isAdressValid(adress)) {
+    showError(adressEl, 'The adress is not valid, please add all details');
   } else {
     valid = true;
   }
@@ -200,6 +200,5 @@ form.addEventListener('submit', function (e) {
 const element = document.getElementById("faq-select__options");
 
 element.addEventListener('click', function (e){
-  console.log(e.target.textContent)
   document.getElementById("question").value = e.target.textContent;
 });
