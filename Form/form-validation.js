@@ -3,7 +3,7 @@ const birthDateEl = document.querySelector('#birth-date');
 const emailEl = document.querySelector('#email');
 const phoneNumberEl = document.querySelector('#phone-number');
 const adressEl = document.querySelector('#adress');
-const dropdownEl = document.querySelector('#faq-select');
+const dropdownEl = document.querySelector('#question');
 const textareaEl = document.querySelector('#questionTextarea');
 const termAndCondEl = document.querySelector('#agreement');
 const form = document.querySelector('#contact-form');
@@ -36,7 +36,7 @@ const isPhoneNumberValid = (phoneNumber) => {
 
   if (!isBetween(phoneNumber.length, 6, 13)) {
     return false;
-  } else if (!reg.test(phone)) {
+  } else if (!reg.test(phoneNumber)) {
     return false;
   }
   return true;
@@ -157,6 +157,8 @@ const checkQuestion = () => {
       'This field is mandatory. Please ask your question bellow'
     );
   } else if (!hasValue(questionOnTextarea) && !questionOnDropdown) {
+    console.log(!hasValue(questionOnTextarea), !questionOnDropdown);
+    console.log(questionOnDropdown);
     showError(
       textareaEl,
       'This field is mandatory. Please choose one option or ask your question bellow'
@@ -213,9 +215,9 @@ form.addEventListener('submit', function (e) {
   const isFormValid = formValidator();
   const modalEl = document.querySelector('.modal');
 
-  if (isFormValid){
+  if (isFormValid) {
     modalEl.classList.add('visible');
-  } 
+  }
   return false;
 });
 
