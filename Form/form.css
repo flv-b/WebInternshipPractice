@@ -163,35 +163,3 @@ textarea {
 .form-field small {
   color: #e3132f;
 }
-
-.modal {
-  visibility: hidden;
-  background-color: #d9dbe280;
-  top: 0;
-  left: 0;
-  height: 100%;
-  position: fixed;
-}
-
-.modal-wrapper {
-  background-color: #ffffff;
-  color: #525b78;
-  margin: auto;
-}
-
-.modal-wrapper header {
-  margin-top: 45px;
-  text-align: center;
-}
-.modal-content {
-  display: flex;
-  letter-spacing: 0px;
-  font-size: 22px;
-  margin: 26px 238px;
-  text-align: center;
-}
-
-.modal-wrapper .primary-button {
-  margin-bottom: 42px;
-  color: #525B78;
-}
