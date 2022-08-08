@@ -4,7 +4,7 @@ const emailEl = document.querySelector('#email');
 const phoneNumberEl = document.querySelector('#phone-number');
 const adressEl = document.querySelector('#adress');
 const dropdownEl = document.querySelector('#faq-select');
-const textareaEl = document.querySelector('#question');
+const textareaEl = document.querySelector('#questionTextarea');
 const termAndCondEl = document.querySelector('#agreement');
 const form = document.querySelector('#contact-form');
 
@@ -58,7 +58,7 @@ const isAdressValid = (adress) => {
 const showError = (input, message) => {
   const formField = input.parentElement;
   formField.classList.add('error');
-  const error =  input.closest('div').querySelector('small');
+  const error = input.closest('div').querySelector('small');
   error.textContent = message;
   input.onchange = (e) => {
     console.log(e);
@@ -149,11 +149,17 @@ const checkQuestion = () => {
   let valid = false;
   const questionOnTextarea = textareaEl.value;
   const questionOnDropdown = dropdownEl.value;
+  const dropdownExists = !!document.getElementById('faq-select').offsetParent;
 
-  if (!hasValue(questionOnTextarea)) {
+  if (!hasValue(questionOnTextarea) && dropdownExists === false) {
     showError(
       textareaEl,
-      'This field is mandatory. Please choose one option or ask your question above'
+      'This field is mandatory. Please ask your question bellow'
+    );
+  } else if (!hasValue(questionOnTextarea) && !questionOnDropdown) {
+    showError(
+      textareaEl,
+      'This field is mandatory. Please choose one option or ask your question bellow'
     );
   } else {
     valid = true;
@@ -163,28 +169,34 @@ const checkQuestion = () => {
 
 const checkTermAndCondCheck = () => {
   let valid = false;
-  
-  if(!termAndCondEl.checked){
-    showError(termAndCondEl,'Check the terms and conditions before proceeding');
-  }else{
+
+  if (!termAndCondEl.checked) {
+    showError(
+      termAndCondEl,
+      'Check the terms and conditions before proceeding'
+    );
+  } else {
     valid = true;
   }
   return valid;
-
 };
 
-form.addEventListener('submit', function (e) {
-  e.preventDefault();
+const formValidator = () => {
+  const isMember = document.getElementById('member-status-1').checked;
+  const isFormQuestionAsked = checkQuestion(),
+    isFormTermAndCondChecked = checkTermAndCondCheck();
 
-  let isFormNameValid = checkName(),
+  if (isMember) {
+    return isFormQuestionAsked && isFormTermAndCondChecked;
+  }
+
+  const isFormNameValid = checkName(),
     isFormEmailValid = checkEmail(),
-    isFormBirthDateValid = checkBirthDate();
-  isFormPhoneNumberValid = checkPhoneNumber();
-  isFormAdressValid = checkAddress();
-  isFormQuestionAsked = checkQuestion();
-  isFormTermAndCondChecked = checkTermAndCondCheck();
+    isFormBirthDateValid = checkBirthDate(),
+    isFormPhoneNumberValid = checkPhoneNumber(),
+    isFormAdressValid = checkAddress();
 
-  let isFormValid =
+  const isFormValid =
     isFormNameValid &&
     isFormBirthDateValid &&
     isFormEmailValid &&
@@ -193,12 +205,23 @@ form.addEventListener('submit', function (e) {
     isFormQuestionAsked &&
     isFormTermAndCondChecked;
 
+  return isFormValid;
+};
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const isFormValid = formValidator();
+
   if (isFormValid) console.log('Success!');
   return false;
 });
 
-const element = document.getElementById("faq-select__options");
+const faqEl = document.getElementById('faq-select__options');
 
-element.addEventListener('click', function (e){
-  document.getElementById("question").value = e.target.textContent;
+faqEl.addEventListener('click', function (e) {
+  document.getElementById('question').value = e.target.textContent;
 });
+
+document
+  .getElementById('member-status-1')
+  .addEventListener('change', formValidator);

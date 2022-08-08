@@ -7,27 +7,23 @@ faqSelect.onclick = (faqEvent) => {
   faqOptions.classList.toggle('visible');
 };
 
-document.onclick = (docEvent) =>{
-  if(docEvent.defaultPrevented === false)
+document.onclick = (docEvent) => {
+  if (docEvent.defaultPrevented === false)
     faqOptions.classList.remove('visible');
-}
+};
 
-function isMember() {
-  if (document.getElementById('member-status-2').checked){
-    
-    for(let section of sectionsToHide){
-      section.style.display = 'block';
-    }
-  } else {
-    for(let section of sectionsToHide){
-      console.log(section.style.display);
-      section.style.display = 'none';
-      console.log(section.style.display, section.style, section);
-    }    
+function onMembershipChange() {
+  formValidator();
+  const isMember = document.getElementById('member-status-1').checked;
+
+  for (let section of sectionsToHide) {
+    section.style.display = isMember ? 'none' : 'block';
   }
 }
 
-const membershipStatus = document.querySelectorAll('input[name="member-status"]');
-membershipStatus.forEach( radio => {
-  radio.addEventListener('click', isMember);
+const membershipStatus = document.querySelectorAll(
+  'input[name="member-status"]'
+);
+membershipStatus.forEach((radio) => {
+  radio.addEventListener('click', onMembershipChange);
 });
