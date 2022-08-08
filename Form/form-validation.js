@@ -211,8 +211,11 @@ const formValidator = () => {
 form.addEventListener('submit', function (e) {
   e.preventDefault();
   const isFormValid = formValidator();
+  const modalEl = document.querySelector('.modal');
 
-  if (isFormValid) console.log('Success!');
+  if (isFormValid){
+    modalEl.classList.add('visible');
+  } 
   return false;
 });
 

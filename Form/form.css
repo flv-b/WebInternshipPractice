@@ -1,17 +1,15 @@
-
-.contact-form{
-  background-color: #FFFFFF;
+.contact-form {
+  background-color: #ffffff;
   font-family: Lora;
   margin: 67px 142px auto 142px;
-
 }
 
-.contact-form-header{
+.header {
   font-weight: bold;
   font-size: 44px;
   color: #525b78;
   letter-spacing: 0;
-  line-height: 56pt; 
+  line-height: 56pt;
   margin: auto 155px 34px 117px;
 }
 
@@ -20,74 +18,75 @@
   justify-content: space-between;
 }
 
-
-.contact-form input:not([type="radio"], [type="checkbox"]),
+.contact-form input:not([type='radio'], [type='checkbox']),
 textarea {
-  border: 1px solid #525B78;
+  border: 1px solid #525b78;
   border-radius: 10px;
   opacity: 1;
   height: 40px;
   margin-top: 10px;
 }
- 
-.contact-form .column{
-  
-  margin-bottom: 20px;
-} 
 
-.contact-form textarea{
+.contact-form .column {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.contact-form textarea {
   height: 177px;
   resize: none;
 }
- 
 
 .contact-form input[type='radio'] {
   appearance: none;
 }
 
-
 .contact-form input[type='radio']::before {
   width: 31px;
-  height: 31px; 
+  height: 31px;
   margin-right: 12px;
-  content: "";
+  content: '';
   display: inline-block;
   border-radius: 50%;
-  border: 3px solid #37EFA8;
+  border: 3px solid #37efa8;
   box-sizing: border-box;
 }
 
-.contact-form input[type='radio']:checked::before  {
-  background: radial-gradient(#37EFA8 0%, #37EFA8 40%, transparent 50%, transparent);
-  border-color: #37EFA8;
+.contact-form input[type='radio']:checked::before {
+  background: radial-gradient(
+    #37efa8 0%,
+    #37efa8 40%,
+    transparent 50%,
+    transparent
+  );
+  border-color: #37efa8;
 }
- 
-.contact-form input[type='checkbox']{
-  appearance: none; 
+
+.contact-form input[type='checkbox'] {
+  appearance: none;
   position: relative;
   width: 31px;
   height: 31px;
-  border: 3px solid #37EFA8;
+  border: 3px solid #37efa8;
   border-radius: 10px;
-} 
+}
 
-.contact-form input[type='checkbox']::before{
+.contact-form input[type='checkbox']::before {
   position: absolute;
   top: 0;
   left: 1.5px;
   width: 20px;
   height: 20px;
-  margin: 2px 1px ;
+  margin: 2px 1px;
   border-radius: 7px;
-  content: "";
+  content: '';
   display: inline-block;
   box-sizing: border-box;
 }
 
-
-.contact-form input[type='checkbox']:checked::before{
-  background: #37EFA8; 
-} 
+.contact-form input[type='checkbox']:checked::before {
+  background: #37efa8;
+}
 
 .contact-form .radio-label {
   display: flex;
@@ -95,32 +94,31 @@ textarea {
   font-size: 20px;
   vertical-align: middle;
   line-height: 31px;
-  width:100%;
+  width: 100%;
   margin-top: 10px;
   margin-bottom: 20px;
-
 }
 
-.contact-form .t-and-c-label{
+.contact-form .t-and-c-label {
   margin-left: 12px;
   display: flex;
   letter-spacing: 0px;
   font-size: 15px;
   vertical-align: middle;
   line-height: 31px;
-  width:100%;
+  width: 100%;
 }
 
-.contact-form .submit-contact-form{
-  color:#FFFFFF;
-  background-color: #37EFA8;
+.primary-button {
+  color: #ffffff;
+  background-color: #37efa8;
   width: 189px;
   height: 59px;
-  border: 1px solid #37EFA8;
+  border: 1px solid #37efa8;
   border-radius: 10px;
   font-size: 23px;
   font-family: Lora;
-  margin-top: 5px ;
+  margin-top: 5px;
 }
 
 .custom-select {
@@ -133,15 +131,15 @@ textarea {
   top: 20px;
   width: 10px;
   height: 10px;
-  content: "\25BC";
+  content: '\25BC';
 }
 
 .dropdown-options {
   visibility: hidden;
   position: absolute;
   top: 60px;
-  background-color: #FFFFFF;
-  border: 1px solid #525B78;
+  background-color: #ffffff;
+  border: 1px solid #525b78;
   border-radius: 10px;
 }
 
@@ -152,18 +150,48 @@ textarea {
 }
 
 .dropdown-options > *:hover {
-  background-color: #F5F5F5;
+  background-color: #f5f5f5;
 }
 
-.contact-form .form-field.error input, 
+.contact-form .form-field.error input,
 .contact-form .form-field.error label,
-.contact-form .form-field.error span{
-  border-color: #E3132F;
-  color: #E3132F;
+.contact-form .form-field.error span {
+  border-color: #e3132f;
+  color: #e3132f;
 }
 
+.form-field small {
+  color: #e3132f;
+}
 
+.modal {
+  visibility: hidden;
+  background-color: #d9dbe280;
+  top: 0;
+  left: 0;
+  height: 100%;
+  position: fixed;
+}
 
-.form-field small{
-  color:#E3132F;
+.modal-wrapper {
+  background-color: #ffffff;
+  color: #525b78;
+  margin: auto;
+}
+
+.modal-wrapper header {
+  margin-top: 45px;
+  text-align: center;
+}
+.modal-content {
+  display: flex;
+  letter-spacing: 0px;
+  font-size: 22px;
+  margin: 26px 238px;
+  text-align: center;
+}
+
+.modal-wrapper .primary-button {
+  margin-bottom: 42px;
+  color: #525B78;
 }

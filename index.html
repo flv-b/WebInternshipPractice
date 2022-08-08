@@ -16,7 +16,7 @@
     </header> -->
 
     <form id='contact-form' action="" method="get" class="contact-form">
-      <header class="contact-form-header">
+      <header class="header">
         Having questions? We are here for you
       </header>
 
@@ -139,16 +139,26 @@
       </div>
       
       <div class="row w-100 justify-center">
-        <button class="submit-contact-form">Send</button>
+        <button class="primary-button">Send</button>
+      </div>
+    </form>
+
+      <div class="modal w-100 row justify-center align-center">
+        <div class="modal-wrapper">
+
+          <header class="header">Thank you!</header>
+          
+          <div class="modal-content column ">
+            <span class="modal-text"> Your question has been successfully sent!</span>
+            <span class="modal-text"> Our consultant will get to you shortly!</span>
+          </div>
+          
+          <div class="modal-footer row w-100 justify-center">
+            <button class="primary-button">OK</button>
+          </div>
+        </div>
       </div>
 
-      <!-- <div class="submit-modal-container">
-        <header>Thank you!</header>
-        <div> Your question has been successfully sent!</div>
-        <div> Our consultant will get to you shortly!</div>
-      </div> -->
-
-    </form>
   </body>
   <script src="Form/form-validation.js"></script>
   <script src="Form/form.js"></script>

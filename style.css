@@ -1,5 +1,4 @@
 * {
-  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -29,8 +28,7 @@ input, textarea {
 
 .column{
   display: flex;
-  flex-direction: column; 
-  width: 100%;  
+  flex-direction: column;  
 }
 
 .w-100{
