@@ -37,15 +37,30 @@
 
 .sidebar-menu-items .item{
   margin-bottom: 19px;
+  height: 35px;
 }
 .sidebar-menu-items img{
   vertical-align: auto; 
   padding-right: 22px;
 }
 
-
 .siderbar-wrapper .close-button{
   position: fixed;
   top: 0;
   right: 10px;
+}
+
+.sidebar-menu-items .item.menu-depth-1{
+  color: #525B78;
+  background-color: #D9DBE2;
+  height: 100%;
+  width: calc(100% + 40px);
+  margin:0;
+  margin-left: -20px;
+  padding: 20px;
+}
+
+
+.sidebar-menu-items .item.menu-depth-2{
+  background-color: #FFFFFF;
 }

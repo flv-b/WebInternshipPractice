@@ -40,11 +40,15 @@ input, textarea {
 }
 
 .align-center{
-  align-content: center;
+  align-items: center;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-self-end{
+  justify-self: flex-end;
 }
 
 .space-between-columns{
@@ -53,6 +57,10 @@ input, textarea {
 
 .m-0 {
   margin: 0 !important;
+}
+
+.ml-auto{
+  margin-left: auto;
 }
 
 .visible {
