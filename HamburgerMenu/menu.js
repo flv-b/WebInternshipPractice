@@ -7,6 +7,12 @@ const category2Subitems = [
   { label: 'Category 2.2' },
   { label: 'Category 2.3' },
 ];
+
+const category4Subitems = [
+  { label: 'Category 4.1' },
+  { label: 'Category 4.2' },
+];
+
 const menuItems = [
   { label: 'Doctors', imageSrc: 'assets/menu-icons/doctors.svg', subitems: [] },
   { label: 'Locations', imageSrc: 'assets/menu-icons/locations.svg' },
@@ -25,7 +31,7 @@ const menuItems = [
         subitems: category2Subitems,
       },
       { label: 'Category 3' },
-      { label: 'Category 4' },
+      { label: 'Category 4', subitems: category4Subitems },
     ],
   },
 ];
@@ -54,6 +60,7 @@ document.onclick = (event) => {
 
 const addItemExpandIcon = (parentEl, iconSrc) => {
   const expandIconEl = document.createElement('img');
+  expandIconEl.classList.add('open-close-icon');
   expandIconEl.src = iconSrc;
   expandIconEl.width = 35;
   expandIconEl.height = 35;
@@ -63,7 +70,7 @@ const addItemExpandIcon = (parentEl, iconSrc) => {
 
 const getSubitems = (subitems, depth = 1) => {
   const subitemsContainer = document.createElement('div');
-  subitemsContainer.classList.add('column');
+  subitemsContainer.classList.add('column', 'd-none');
   subitems.forEach((item) => {
     const itemEl = document.createElement('div');
     itemEl.classList.add('item', 'row', 'align-center');
@@ -73,11 +80,16 @@ const getSubitems = (subitems, depth = 1) => {
     subitemsContainer.appendChild(itemEl);
     if (item.subitems?.length) {
       addItemExpandIcon(itemEl, 'assets/menu-icons/open-accordion.svg');
-      let subitemsEl = getSubitems(item.subitems, 2);
+      let subitemsEl = getSubitems(item.subitems, depth + 1);
+      itemEl.addEventListener('click', () => toggleSubmenu(subitemsEl));
       subitemsContainer.appendChild(subitemsEl);
     }
   });
   return subitemsContainer;
+};
+
+const toggleSubmenu = (element) => {
+  element.classList.toggle('d-none');
 };
 
 menuItems.forEach((item) => {
@@ -88,12 +100,13 @@ menuItems.forEach((item) => {
   itemEl.appendChild(itemImgEl);
   const itemLabelEl = document.createTextNode(item.label);
   itemEl.appendChild(itemLabelEl);
-  let extraItem;
+  let subitemsContainer;
   if (item.subitems?.length) {
     addItemExpandIcon(itemEl, 'assets/menu-icons/open-accordion-white.svg');
-    extraItem = getSubitems(item.subitems);
+    subitemsContainer = getSubitems(item.subitems);
+    itemEl.addEventListener('click', () => toggleSubmenu(subitemsContainer));
   }
 
   menuItemsEl.appendChild(itemEl);
-  if (extraItem) menuItemsEl.appendChild(extraItem);
+  if (subitemsContainer) menuItemsEl.appendChild(subitemsContainer);
 });
