@@ -66,6 +66,7 @@ const addItemExpandIcon = (parentEl, iconSrc) => {
   expandIconEl.height = 35;
   expandIconEl.classList.add('ml-auto');
   parentEl.appendChild(expandIconEl);
+  return expandIconEl;
 };
 
 const getSubitems = (subitems, depth = 1) => {
@@ -79,19 +80,29 @@ const getSubitems = (subitems, depth = 1) => {
     itemEl.classList.add(`menu-depth-${depth}`);
     subitemsContainer.appendChild(itemEl);
     if (item.subitems?.length) {
-      addItemExpandIcon(itemEl, 'assets/menu-icons/open-accordion.svg');
+      const openArrow = addItemExpandIcon(
+        itemEl,
+        'assets/menu-icons/open-accordion.svg'
+      );
+      const closeArrow = addItemExpandIcon(
+        itemEl,
+        'assets/menu-icons/close-accordion.svg'
+      );
+      closeArrow?.classList.add('d-none');
       let subitemsEl = getSubitems(item.subitems, depth + 1);
-      itemEl.addEventListener('click', () => toggleSubmenu(subitemsEl));
+      itemEl.addEventListener('click', () => {
+        toggleSubmenu(subitemsEl);
+        openArrow?.classList.toggle('d-none');
+        closeArrow?.classList.toggle('d-none');
+      });
       subitemsContainer.appendChild(subitemsEl);
     }
   });
   return subitemsContainer;
 };
 
-const toggleSubmenu = (element) => {
-  element.classList.toggle('d-none');
-};
-
+const toggleSubmenu = (elementToToggle) =>
+  elementToToggle?.classList.toggle('d-none');
 menuItems.forEach((item) => {
   const itemEl = document.createElement('div');
   itemEl.classList.add('item', 'row', 'align-center');
@@ -102,9 +113,18 @@ menuItems.forEach((item) => {
   itemEl.appendChild(itemLabelEl);
   let subitemsContainer;
   if (item.subitems?.length) {
-    addItemExpandIcon(itemEl, 'assets/menu-icons/open-accordion-white.svg');
+    const openArrow = addItemExpandIcon(itemEl, 'assets/menu-icons/open-accordion-white.svg');
+    const closeArrow = addItemExpandIcon(
+      itemEl,
+      'assets/menu-icons/close-accordion.svg'
+    );
+    closeArrow?.classList.add('d-none');
     subitemsContainer = getSubitems(item.subitems);
-    itemEl.addEventListener('click', () => toggleSubmenu(subitemsContainer));
+    itemEl.addEventListener('click', () => {
+      toggleSubmenu(subitemsContainer);
+      openArrow?.classList.toggle('d-none');
+      closeArrow?.classList.toggle('d-none');
+    });
   }
 
   menuItemsEl.appendChild(itemEl);
