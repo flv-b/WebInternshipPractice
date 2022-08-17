@@ -77,7 +77,6 @@ const getSubitems = (subitems, depth = 1) => {
     itemEl = appendLabelToItem(itemEl, item.label);
     itemEl.classList.add(`menu-depth-${depth}`);
     subitemsContainer.appendChild(itemEl);
-
     if (item.subitems?.length) {
       const subitemsEl = getItemOpenCloseArrows(itemEl, item, depth + 1);
       subitemsContainer.appendChild(subitemsEl);

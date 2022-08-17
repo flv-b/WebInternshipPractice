@@ -45,7 +45,7 @@
 }
 
 .siderbar-wrapper .close-button{
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 10px;
 }
