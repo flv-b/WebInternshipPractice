@@ -2,8 +2,6 @@
   position: relative;
   height: 489px;
   width: 100%;
-  background-image: linear-gradient(90deg, #1759f0 0%, #00d1a933 100%),
-    url('../assets/carousell-images/carousellImg1.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: bottom;
@@ -13,4 +11,33 @@
   position: absolute;
   right: 10%;
   bottom: 0;
+}
+
+.slide-content {
+  position: relative;
+  max-width: 600px;
+  width: 50%;
+  top: 100px;
+  left: 140px;
+
+}
+
+.slide-header{
+  color: #FFFFFF;
+  font-size: 58px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.slide-span{
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 200px;
+  margin-bottom: 46px;
+}
+
+.carousell-button{
+  color:#525B78;
+  font-weight: bold;
 }
