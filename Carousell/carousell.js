@@ -1,4 +1,5 @@
 const header = document.getElementById('carousell');
+const switchButtonContainer = document.getElementById('switch-btn-cont');
 
 const carousellArray = [
   {
@@ -31,14 +32,14 @@ const getSlideElementContainer = (bgImgSrc) => {
   slideEl.classList.add('carousell', 'position-relative');
   slideEl.style.backgroundImage = `linear-gradient(90deg, #1759f0 0%, #00d1a933 100%) , url('${bgImgSrc}')`;
   return slideEl;
-}
+};
 
 const getOverlayImg = (overlayImgSrc) => {
   const overlayImgEl = document.createElement('img');
   overlayImgEl.classList.add('overlay');
   overlayImgEl.src = overlayImgSrc;
   return overlayImgEl;
-}
+};
 
 const getSlideContent = (slideData) => {
   const slideContentEl = document.createElement('div');
@@ -55,23 +56,78 @@ const getSlideContent = (slideData) => {
   slideContentEl.appendChild(slideDescription);
 
   const slideButton = document.createElement('button');
-  slideButton.classList.add('primary-button','carousell-button');
+  slideButton.classList.add('primary-button', 'carousell-button');
   slideButton.innerText = slideData.button;
   slideContentEl.appendChild(slideButton);
 
   return slideContentEl;
+};
+
+const clearDots = (switchBetweenSlidesDot) => {
+  switchBetweenSlidesDot.forEach((dot) => {
+    if(dot.classList.contains('carousell-switch-button-pressed'))
+      dot.classList.remove('carousell-switch-button-pressed');
+  });
+  return switchBetweenSlidesDot;
+};
+
+
+const switchBetweenSlidesDot=[];
+for (let i = 0; i < NUMBER_OF_SLIDES; i++) {
+  switchBetweenSlidesDot[i] = document.createElement('button');
+  switchBetweenSlidesDot[i].classList.add('carousell-switch-button');
+  switchBetweenSlidesDot[i].onclick = (e) => {
+    e.preventDefault();
+    clearDots(switchBetweenSlidesDot); 
+    switchBetweenSlidesDot[i].classList.add('carousell-switch-button-pressed');
+    activeSlide = i;
+    displaySlide(i-1);
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(switchSlide, 10000);
+  }
+  switchButtonContainer.appendChild(switchBetweenSlidesDot[i]);
+ 
 }
 
+header.style.transform = 'translateX(100vw)';
+switchBetweenSlidesDot[0].classList.add('carousell-switch-button-pressed');
 
-carousellArray.forEach( (slideData, index) => {
+let activeSlide = 0;
+const switchSlide = () => {
+  activeSlide++;
+  displaySlide(activeSlide % NUMBER_OF_SLIDES);
+};
+
+const displaySlide = (slideNumber) => {
+  clearDots(switchBetweenSlidesDot); 
+  switchBetweenSlidesDot[slideNumber].classList.add('carousell-switch-button-pressed');
+  switch(slideNumber){
+    case 0:
+      header.style.transform = 'translateX(100vw)';
+      break;
+    case 1:
+      header.style.transform = 'translateX(0)';
+      break;
+    default:
+      header.style.transform = `translateX(${-100*(slideNumber-1)}vw)`;   
+  }
+}
+
+let refreshInterval = setInterval(switchSlide, 10000);
+
+carousellArray.forEach((slideData, index) => {
   const slideEl = getSlideElementContainer(slideData.bgImg);
   let overlayImgEl;
-  if(slideData.overlayImg?.length){
+  if (slideData.overlayImg?.length) {
     overlayImgEl = getOverlayImg(slideData.overlayImg);
     slideEl.appendChild(overlayImgEl);
   }
   const slideContentEl = getSlideContent(slideData);
   slideEl.appendChild(slideContentEl);
+
   header.appendChild(slideEl);
 });
+
+
+
 
