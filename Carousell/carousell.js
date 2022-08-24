@@ -1,5 +1,8 @@
 const header = document.getElementById('carousell');
 const switchButtonContainer = document.getElementById('switch-btn-cont');
+const defaultGradColor1 = '#1759f0';
+const defaultGradColor2 = '#00d1a933';
+
 
 const carousellArray = [
   {
@@ -27,10 +30,10 @@ const carousellArray = [
 ];
 const NUMBER_OF_SLIDES = carousellArray.length;
 
-const getSlideElementContainer = (bgImgSrc) => {
+const getSlideElementContainer = (bgImgSrc, gradColor1=defaultGradColor1, gradColor2=defaultGradColor2) => {
   const slideEl = document.createElement('div');
   slideEl.classList.add('carousell', 'position-relative');
-  slideEl.style.backgroundImage = `linear-gradient(90deg, #1759f0 0%, #00d1a933 100%) , url('${bgImgSrc}')`;
+  slideEl.style.backgroundImage = `linear-gradient(90deg,  ${gradColor1} 0%, ${gradColor2} 100%) , url('${bgImgSrc}')`;
   return slideEl;
 };
 
@@ -81,7 +84,7 @@ for (let i = 0; i < NUMBER_OF_SLIDES; i++) {
     clearDots(switchBetweenSlidesDot); 
     switchBetweenSlidesDot[i].classList.add('carousell-switch-button-pressed');
     activeSlide = i;
-    displaySlide(i-1);
+    displaySlide(i);
     clearInterval(refreshInterval);
     refreshInterval = setInterval(switchSlide, 10000);
   }
@@ -89,7 +92,7 @@ for (let i = 0; i < NUMBER_OF_SLIDES; i++) {
  
 }
 
-header.style.transform = 'translateX(100vw)';
+header.style.transform = 'translateX(0)';
 switchBetweenSlidesDot[0].classList.add('carousell-switch-button-pressed');
 
 let activeSlide = 0;
@@ -101,16 +104,8 @@ const switchSlide = () => {
 const displaySlide = (slideNumber) => {
   clearDots(switchBetweenSlidesDot); 
   switchBetweenSlidesDot[slideNumber].classList.add('carousell-switch-button-pressed');
-  switch(slideNumber){
-    case 0:
-      header.style.transform = 'translateX(100vw)';
-      break;
-    case 1:
-      header.style.transform = 'translateX(0)';
-      break;
-    default:
-      header.style.transform = `translateX(${-100*(slideNumber-1)}vw)`;   
-  }
+  header.style.transform = `translateX(${-100*(slideNumber)}vw)`;  
+  header.style.transitionDuration = '2s'; 
 }
 
 let refreshInterval = setInterval(switchSlide, 10000);

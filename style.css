@@ -4,7 +4,7 @@
 }
 
 body {
-  overflow: hidden;
+  overflow-x: hidden;
   max-width: 100vw;
   color: #525b78;
   background-color: #d9dbe2;
@@ -36,6 +36,9 @@ textarea {
 
 .w-100 {
   width: 100%;
+}
+.w-100vw {
+  width: 100vw;
 }
 
 ::placeholder {
@@ -79,4 +82,12 @@ textarea {
 
 .overflow-hidden{
   overflow: hidden; 
+}
+
+.position-absolute{
+  position: absolute;
+}
+
+.position-relative{
+  position: relative;
 }
