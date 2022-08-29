@@ -91,3 +91,17 @@ textarea {
 .position-relative{
   position: relative;
 }
+
+
+.primary-button {
+  color: #ffffff;
+  background-color: #37efa8;
+  width: 189px;
+  height: 59px;
+  border: 1px solid #37efa8;
+  border-radius: 10px;
+  font-size: 23px;
+  font-family: Lora;
+  margin-top: 5px;
+  cursor: pointer;
+}

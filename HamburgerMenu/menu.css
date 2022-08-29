@@ -2,6 +2,7 @@
   position: fixed;
   top: 31px;
   left: 133px;
+  cursor: pointer;
 }
 
 .siderbar-wrapper{
@@ -39,6 +40,8 @@
 .sidebar-menu-items .item{
   margin-bottom: 19px;
   height: 35px;
+  
+  cursor: pointer;
 }
 .sidebar-menu-items img{
   vertical-align: auto; 
@@ -49,6 +52,7 @@
   position: absolute;
   top: 0;
   right: 10px;
+  cursor: pointer;
 }
 
 .sidebar-menu-items .item.menu-depth-1{
@@ -70,11 +74,13 @@
   margin:0;
   margin-left: -20px;
   padding: 20px;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .open-close-icon{
   transition: transform 2s;
+  
+  cursor: pointer;
 }
 
 .translation{
