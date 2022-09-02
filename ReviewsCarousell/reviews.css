@@ -1,8 +1,7 @@
 #reviews-wrapper{
   margin-top: 25px;
-  max-width: 400px;
-  width: 100%;
   height: 100%;
+  margin-bottom: 100px;
 }
 
 .reviews-header{
@@ -15,11 +14,18 @@
   padding: 50px;
   box-shadow: 0px 0px 10px #525B7880;
   border-radius: 10px;
+  max-width: 400px;
   width: 100%;
 }
 
 .reviews-carousell-container{
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  column-gap: 125px;
+  row-gap: 100px;
+  padding: 0 100px;
+  
 }
 
 .reviews-carousell-container .avatar {
@@ -50,9 +56,23 @@ img.review-star{
 }
 
 .cards-next-button{
-  right: -50px;
+  right: 50px;
 }
 
 .cards-back-button{
-  left: -50px;
+  left: 50px;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+  .reviews-carousell-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 578px) {
+ .reviews-carousell-container{
+    grid-template-columns: 1fr;
+  }
 }
