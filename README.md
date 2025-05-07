@@ -1,1 +1,1 @@
-# jsPractice
+# Web Internship Practice
